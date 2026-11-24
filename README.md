@@ -96,9 +96,11 @@ public class DrawingView extends View {
 
     public DrawingView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.GRAY);
         paint.setStyle(Paint.Style.FILL);
+        paint.setTextSize(40);
     }
 
     @Override
@@ -107,34 +109,51 @@ public class DrawingView extends View {
 
         float width = getWidth();
         float height = getHeight();
-
         float centerX = width / 2;
-        float size = width * 0.22f;
+        float size = width * 0.18f;
 
         // Circle
-        canvas.drawCircle(centerX, height * 0.15f, size, paint);
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.GRAY);
+        canvas.drawCircle(centerX, height * 0.12f, size, paint);
+
+        paint.setColor(Color.BLACK);
+        paint.setTextAlign(Paint.Align.CENTER);
+        canvas.drawText("Circle", centerX, height * 0.24f, paint);
 
         // Rectangle
+        paint.setColor(Color.GRAY);
         canvas.drawRect(centerX - size, height * 0.30f,
-                centerX + size, height * 0.45f, paint);
+                centerX + size, height * 0.42f, paint);
+
+        paint.setColor(Color.BLACK);
+        canvas.drawText("Rectangle", centerX, height * 0.46f, paint);
 
         // Line
-        paint.setStrokeWidth(20);
+        paint.setColor(Color.GRAY);
         paint.setStyle(Paint.Style.STROKE);
-        canvas.drawLine(centerX - size, height * 0.58f,
-                centerX + size, height * 0.58f, paint);
+        paint.setStrokeWidth(15);
+        canvas.drawLine(centerX - size, height * 0.56f,
+                centerX + size, height * 0.56f, paint);
 
-        // Oval
         paint.setStyle(Paint.Style.FILL);
-        canvas.drawOval(centerX - size, height * 0.70f,
-                centerX + size, height * 0.90f, paint);
+        paint.setColor(Color.BLACK);
+        canvas.drawText("Line", centerX, height * 0.62f, paint);
+
+        // Square
+        paint.setColor(Color.GRAY);
+        canvas.drawRect(centerX - size, height * 0.70f,
+                centerX + size, height * 0.70f + (size * 2), paint);
+
+        paint.setColor(Color.BLACK);
+        canvas.drawText("Square", centerX, height * 0.70f + (size * 2) + 50, paint);
     }
 }
 ```
 
 ## OUTPUT
 
-<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/0b0465c7-9d08-493e-a5de-df5d6921f50a" />
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/28279274-df6d-4c73-a4e0-0d08774bb73f" />
 
 
 
