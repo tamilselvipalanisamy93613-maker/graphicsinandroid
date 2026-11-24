@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
-##DrawingView.java:
+## DrawingView.java:
 ```
 package com.example.graphicalprimitives;
 
